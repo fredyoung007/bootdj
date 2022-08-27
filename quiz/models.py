@@ -32,6 +32,9 @@ class Choice(models.Model):
     order = models.IntegerField(default=0)
     rate = models.IntegerField(default=0, validators=[MinValueValidator(0), MaxValueValidator(10)])
 
+    class Meta:
+        ordering = ['order']
+
     def __str__(self):
         return f'ID={self.id} order= {self.order} choice={self.choice} qeustion={self.question_id} is_correct={self.is_correct} rate={self.rate}'
 
